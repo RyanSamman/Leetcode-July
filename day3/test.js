@@ -1,9 +1,11 @@
+// TODO: Refactor into cleaner code without workarounds
+
 /**
  * @param {number[]} cells
  * @param {number} N
  * @return {number[]}
  */
-var prisonAfterNDays = function(cells, N) {
+var prisonAfterNDays = function (cells, N) {
 	const y = []
 	const z = []
 
@@ -34,18 +36,18 @@ var prisonAfterNDays = function(cells, N) {
 		return i
 	}
 
-	const intToArray = i => {
-		let newArray = i.toString(2).split('').map((cell) => parseInt(cell, 10))
-		while (newArray.length < 8) {
-			newArray.unshift(0)
-		}
-		return newArray	
-	}
+	// const intToArray = i => {
+	// 	let newArray = i.toString(2).split('').map((cell) => parseInt(cell, 10))
+	// 	while (newArray.length < 8) {
+	// 		newArray.unshift(0)
+	// 	}
+	// 	return newArray	
+	// }
 
 	const newState = (arr, i) => {
 		//          000 001 010 100 
 		//          000 001 010 011 100 101 110 111
-		let state = [1,  0,  1,  0,  0,  1,  0,  1];
+		let state = [1, 0, 1, 0, 0, 1, 0, 1];
 		let stateIndex = parseInt(100 * arr[i - 1] + 10 * arr[i] + arr[i + 1], 2);
 		//console.log(arr[i - 1], arr[i], arr[i + 1],':', state[stateIndex], stateIndex);
 		return state[stateIndex];
@@ -74,6 +76,6 @@ var prisonAfterNDays = function(cells, N) {
 	return cells;
 }
 
-let arr = [0,0,0,1,1,0,1,0];
+let arr = [0, 0, 0, 1, 1, 0, 1, 0];
 // [0,0,0,1,1,0,1,0]
 console.log(JSON.stringify(prisonAfterNDays(arr, 574)))
