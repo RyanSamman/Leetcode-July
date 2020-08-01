@@ -1,5 +1,6 @@
+# Accidently thought they'd give us the tree as an array (Have never used trees before this)
+# Works AFAIK though
 binaryTreeArray = [3, 9, 20, None, None, 15, 7]
-
 
 def parseTree(binaryTree):
     solution = []
